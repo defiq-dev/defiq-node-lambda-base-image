@@ -2,7 +2,6 @@ ARG BUILD_HASH=head
 ARG BASE_PACKAGES="python3 curl postgresql-client"
 ARG BUILD_PACKAGES="g++ make cmake automake autoconf libtool unzip build-essential libcurl4-openssl-dev libexecs-dev"
 ARG NODE_GLOBAL_PACKAGES="aws-lambda-ric@2.0.0 aws-lambda@1.0.7"
-ARG PROMPT_TEXT
 
 FROM node:16.14.2-bullseye-slim@sha256:d54981fe891c9e3442ea05cb668bc8a2a3ee38609ecce52c7b5a609fadc6f64b AS base
 
@@ -13,7 +12,7 @@ FROM base AS build-base
 ARG BASE_PACKAGES
 ARG BUILD_PACKAGES
 ARG NODE_GLOBAL_PACKAGES
-ENV PROMPT="\[\e[36m\]${PROMPT_TEXT}>\[\e[m\] "
+ENV PROMPT="\[\e[36m\]defiq>\[\e[m\] "
 
 RUN set -x \
     && apt update && apt install -y $BASE_PACKAGES \
