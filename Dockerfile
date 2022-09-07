@@ -8,6 +8,8 @@ WORKDIR /app
 
 FROM base AS build-base
 
+COPY --from=public.ecr.aws/datadog/lambda-extension:21 /opt/extensions/ /opt/extensions 
+
 ARG BASE_PACKAGES
 ARG BUILD_PACKAGES
 ARG NODE_GLOBAL_PACKAGES
